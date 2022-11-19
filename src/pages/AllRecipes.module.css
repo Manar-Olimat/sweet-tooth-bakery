@@ -1,0 +1,20 @@
+
+.bg_header{
+    background-color: #d46d9f1d;
+    
+    height: 150px;
+}
+
+.home_header{
+    font-size: 60px;
+    /* font-family: 'Allura', cursive; */
+    /* font-family: 'Dancing Script', cursive; */
+    /* font-family: 'Great Vibes', cursive; */
+    font-family: 'Marck Script', cursive;
+    /* font-family: 'Pacifico', cursive; */
+    color: #5e2f58;
+    text-align: center;
+    text-decoration: underline;
+    padding-top: 30px;
+
+}

@@ -1,6 +1,6 @@
 import {useRef} from 'react'
 import axios from 'axios';
-const ReviewForm = () => {
+const ReviewForm = (props) => {
 // get input values
     const rateInputRef=useRef();
     const reviewInputRef=useRef();
@@ -28,6 +28,7 @@ function onAddReview(reviewData){
 
         const reviewData={
             rete: enteredRate,
+            recipe:props.recipe,
             review: enteredReview,
            
 

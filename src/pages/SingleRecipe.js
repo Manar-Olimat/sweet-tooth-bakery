@@ -1,18 +1,40 @@
-import {useState,useEffect} from 'react';
+import {useState,useEffect,useContext} from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import ReviewForm from '../components/reviews/ReviewForm';
 import ReviewItem from '../components/reviews/ReviewItem';
+import FavoritesContext from '../store/favoritesContext';
+import ReviewList from '../components/reviews/ReviewList';
 
 
 
 
 const SingleRecipe = () => {
   const params = useParams();
+  const favContext=  useContext(FavoritesContext);
 
   const [isLoading, setIsLoading]=useState(true);
   const [loadedRecipes, setLoadedRecipes]=useState([]);
+  const itemIsFavorite=favContext.itemIsFavorites(loadedRecipes.id);
+
+  function toggleFavoritesStatuesHandler() {
+    if (itemIsFavorite) {
+      favContext.removeFavorites(loadedRecipes.id);
   
+    }
+    else{
+      favContext.addFavorites({
+        id: loadedRecipes.id,
+        userId:sessionStorage.getItem('user_key'),
+        title: loadedRecipes.title,
+        image: loadedRecipes.image,
+        
+        
+      });
+  
+    }
+  }
+
   useEffect(() => {
     setIsLoading(true);
     //  get data from firebase api
@@ -28,6 +50,7 @@ const SingleRecipe = () => {
   const recipes=[];
   
   for (const key in data){
+    // console.log(key === params.id);
     if(key === params.id){
     const recipe={
       id:key,
@@ -98,7 +121,10 @@ const steps=steps_split.map((item)=><li key={Math.random()} className='mb-5'>{it
                <div className="bg-white flex flex-col justify-start p-6">
                     {/* <a href="#" className="text-blue-700 text-sm font-bold uppercase pb-4">Technology</a> */}
                     <h3 className="text-3xl font-bold text-start underline pb-4">{loadedRecipes.title}</h3>
-                    
+                    {sessionStorage.getItem('user_key')!=null &&
+                      <button className='w-max mt-6 btn-card items-center px-3 py-2 text-sm font-medium text-center text-black rounded-lg hover:shadow-lg focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' onClick={toggleFavoritesStatuesHandler}>
+{itemIsFavorite ? 'Remove From Favorites' : ' TO FAVORITES'}
+      </button>}
                     <p className="pb-6">
                     {loadedRecipes.description}</p>
                 </div>
@@ -135,17 +161,17 @@ const steps=steps_split.map((item)=><li key={Math.random()} className='mb-5'>{it
 
             <article className="flex flex-col w-full shadow my-4">
              
-             <ReviewForm />
+             <ReviewForm  recipe={params.id} />
 {/* REVIEWS */}
 
-<ReviewItem />
+<ReviewList recipe={params.id} />
     
 </article>
 
         </section>
 
         {/* <!-- Sidebar Section --> */}
-        <aside className="w-full md:w-1/3 flex flex-col items-center px-3">
+        {/* <aside className="w-full md:w-1/3 flex flex-col items-center px-3">
 
             <div className="w-full bg-white shadow flex flex-col my-4 p-6">
                 <p className="text-xl text-start font-semibold pb-5">Discover Other Categories</p>
@@ -168,7 +194,7 @@ const steps=steps_split.map((item)=><li key={Math.random()} className='mb-5'>{it
                 </ul>
             </div>
 
-        </aside>
+        </aside> */}
 
    
     </section>

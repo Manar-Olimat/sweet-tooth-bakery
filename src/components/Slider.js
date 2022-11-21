@@ -28,7 +28,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
-                <SwiperSlide>
+                <SwiperSlide className="SwiperSlide">
                     {/* <img
                         className="object-fill w-full h-96"
                         src="https://cdn.pixabay.com/photo/2022/03/20/15/40/nature-7081138__340.jpg"
@@ -36,14 +36,14 @@ import { Autoplay, Pagination, Navigation } from "swiper";
                     /> */}
                     <div className="inner-slider">
                                         <div 
-                        className="bg-cover bg-center w-full hero-cover h-auto text-white py-24 px-10 object-fill bg-[url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1422&q=80)]" 
+                        className="bg-cover bg-center w-full hero-cover h-auto text-white py-24 px-10 object-fill bg-[url(https://imageio.forbes.com/specials-images/imageserve/932635636/Woman-preparing-muffins-at-home/960x0.jpg?format=jpg&width=960)]" 
          >
        <div className="md:w-1/2">
-        <p className="font-bold text-sm uppercase">Services</p>
-        <p className="text-3xl font-bold">Hello world</p>
-        <p className="text-2xl mb-10 leading-none">Carousel with TailwindCSS and jQuery</p>
-        <a href="#"
-         className="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact us</a>
+        {/* <p className="font-bold text-sm uppercase">Services</p> */}
+        {/* <p className="text-3xl font-bold">Hello world</p> */}
+        <p className="text-2xl mb-10 leading-none">Find Wonderful Recipes With Us</p>
+        <Link to={'/all-recipes'}
+         className="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Explore</Link>
         </div>  
     </div>
                     </div>
@@ -54,7 +54,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
                         className="bg-cover bg-center w-full hero-cover h-auto text-white py-24 px-10 object-fill bg-[url(https://dmrqkbkq8el9i.cloudfront.net/Pictures/1024x536/2/3/0/166230_homebakinggetty_603199.jpg)]" 
          >
        <div className="md:w-1/2">
-        <p className="font-bold text-sm uppercase">Services</p>
+        {/* <p className="font-bold text-sm uppercase"></p> */}
         <p className="text-3xl font-bold">Free Recipes</p>
         <p className="text-2xl mb-10 leading-none">Enjoy Baking While Learning New Recipes With Us</p>
         <Link to='/all-recipes'
@@ -64,15 +64,14 @@ import { Autoplay, Pagination, Navigation } from "swiper";
                 </SwiperSlide>
                 <SwiperSlide>
                 <div 
-                        className="bg-cover bg-center w-full hero-cover h-auto text-white py-24 px-10 object-fill bg-[url(https://res.cloudinary.com/jerrick/image/upload/c_scale,f_jpg,q_auto/rkbltvavimi1vq3zkjw8.jpg)]" 
+                        className="bg-cover bg-center w-full  hero-cover h-auto text-white py-24 px-10 object-fill bg-[url(https://res.cloudinary.com/jerrick/image/upload/c_scale,f_jpg,q_auto/rkbltvavimi1vq3zkjw8.jpg)]" 
          >
        <div className="md:w-1/2">
-        <p className="font-bold text-sm uppercase">Services</p>
-        <p className="text-3xl font-bold">Hello world</p>
-        <p className="text-2xl mb-10 leading-none">Carousel with TailwindCSS and jQuery</p>
-        <a href="#"
-         className="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact us</a>
-        </div>  
+       <p className="text-3xl font-bold">Free Recipes</p>
+        <p className="text-2xl mb-10 leading-none">Enjoy Baking While Learning New Recipes With Us</p>
+        <Link to='/all-recipes'
+         className="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Explore More</Link>
+         </div>  
     </div>
                 </SwiperSlide>
             </Swiper>

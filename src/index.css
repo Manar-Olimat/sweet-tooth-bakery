@@ -10,7 +10,7 @@
     background-color: #d46d9f62;
     height: 150px;
 }
-.btn-card{
+.btn-card, .bg-tabs{
     background-color: #53c7e6;
 }
 .review-btn{
@@ -63,7 +63,10 @@ color: #5e2f58;
 } 
 
 .slider{
-height: 700px;
+    /* position: relative; */
+    /* bottom: 100px; */
+/* height: 700px; */
+margin-bottom: 50px;
 }
 
 /* .inner-slider{
@@ -113,8 +116,13 @@ height: 500px;
 
 .recipe-card {
     width: 300px;
+    height: 450px;
   }
+  .recipe-card img{
+    width: 300px;
+    height: 300px;
 
+  }
 
   .offscreen {
     position: absolute;
@@ -127,4 +135,43 @@ height: 500px;
     font-weight: bold;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .brand-name{
+        /* visibility: hidden; */
+        display: none;
+
+    }
+    .second_nav{
+        font-size: smaller;
+    }
+
+    .slider{
+        width: 300px;
+
+    }
+    .SwiperSlide img
+{
+    width: 200px;
+
+}
+
+.gallery {
+    display: inline-block;
+    justify-content: space-between;
+    align-items: start;
+    /* margin-left: 5px; */
+    padding: 10px 10px;
+    
+
+    
+}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+    
 }

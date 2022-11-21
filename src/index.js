@@ -4,13 +4,15 @@ import './index.css';
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {UserAuthContextProvider} from './store/userAuthContext';
+import {FavoritesContextProvider} from './store/favoritesContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <UserAuthContextProvider>
-
+<FavoritesContextProvider>
   <Router>
     <App />
   </Router>
+  </FavoritesContextProvider>
   </UserAuthContextProvider>
 );
 

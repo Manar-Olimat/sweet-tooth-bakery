@@ -18,3 +18,23 @@
     padding-top: 30px;
 
 }
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .home_header{
+        font-size: 30px;
+
+    }
+    .bg_header{
+        height: 100px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+.bg_header{
+    width: 100%;
+}
+    
+}

@@ -1,11 +1,13 @@
 import {useRef} from 'react'
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink,useNavigate } from 'react-router-dom';
 
 // import styles from './LoginForm.module.css';
 import styles from '../components/layout/Layout.module.css'
 const SignupForm = (props) => {
+    const navigate=useNavigate();
 
     const nameInputRef=useRef();
+    const imgInputRef=useRef();
     const emailInputRef=useRef();
     const passwordInputRef=useRef();
 
@@ -14,6 +16,7 @@ const SignupForm = (props) => {
 function submitHandler(e) {
     e.preventDefault();
     const enteredName=nameInputRef.current.value;
+    const enteredImg=imgInputRef.current.value;
     const enteredEmail=emailInputRef.current.value;
     const enteredPassword=passwordInputRef.current.value;
 
@@ -23,6 +26,7 @@ function submitHandler(e) {
     const userData={
         
         name:enteredName,
+        img:enteredImg,
         email:enteredEmail,
         password:enteredPassword,
 
@@ -31,7 +35,7 @@ function submitHandler(e) {
     };
     // console.log(meetupData);
     props.onAddUser(userData);
-
+    navigate('/login'); 
 }
 
 
@@ -49,6 +53,10 @@ function submitHandler(e) {
               <div>
                       <label htmlFor="name" className="block text-start mb-2 text-sm font-medium text-gray-900 dark:text-white">Your name</label>
                       <input type="text" ref={nameInputRef} name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Manar" required minLength='3'/>
+                  </div>
+                  <div>
+                      <label htmlFor="img" className="block text-start mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Image</label>
+                      <input type="url" ref={imgInputRef} name="img" id="img" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Image url" required minLength='3'/>
                   </div>
                   <div>
                       <label htmlFor="email" className="block text-start mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>

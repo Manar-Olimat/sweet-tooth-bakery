@@ -67,7 +67,10 @@ const Home = () => {
   
   return (
     <div className='container'>
-        <Slider />
+<div>
+<Slider />
+
+</div>
         <div className={styles.bg_header}>
         <h2 className={styles.home_header}>Featured Categories </h2>
 

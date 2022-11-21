@@ -1,10 +1,13 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect,useContext } from 'react'
 import { Link, NavLink,useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import UserAuthContext from '../store/userAuthContext';
+
 // import styles from './LoginForm.module.css';
 import styles from '../components/layout/Layout.module.css'
 
 const LoginForm = () => {
+    const authContext=useContext(UserAuthContext);
 
     const emailRef = useRef();
     const pwdRef = useRef();
@@ -60,6 +63,10 @@ function submitHandler(e) {
 //   console.log(checkAuth(users,enteredEmail,enteredPwd));
 if(checkAuth(users,enteredEmail,enteredPwd))
    {
+    // this.forceUpdate();
+    authContext.userIsLogged(true)
+
+
 navigate('/'); 
 }  
 else{

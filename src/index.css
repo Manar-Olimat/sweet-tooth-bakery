@@ -3,6 +3,66 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script&family=Great+Vibes&family=Marck+Script&family=Pacifico&family=Playball&display=swap');
 
+
+.hero_inner{
+    padding-top: 100px;
+}
+.hero_text_cover{
+    height: 50%;
+}
+.bg_hero{
+    background-color: #faeef4;
+}
+.hero_join{
+    /*background-color: #f8f3f686;
+    border: 1px groove #d46d9e;
+    */
+    background-color: #53c7e6;
+    border: 1px groove #53c7e6;
+    border-radius: 14px;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    -ms-border-radius: 14px;
+    -o-border-radius: 14px;
+}
+
+.hero_more{
+    /* background-color: #f8f3f686;
+border: 1px groove #d46d9e; */
+border-radius: 14px;
+
+background-color: #cae7ef64;
+border: 1px groove #53c7e6;
+
+}
+
+.hero_more:hover{
+    background-color: #53c7e6;
+
+}
+
+.hero{
+    content: '';
+    background-image: url('./images/hero.png');
+    background-size: cover;
+    
+
+ 
+}
+.video-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+  }
+  
+  .video-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
 .bg-navigation{
     background-color: #f5e6ed6e;
 }
@@ -13,6 +73,14 @@
 .btn-card, .bg-tabs{
     background-color: #53c7e6;
 }
+.btn-card.header{
+    margin-top: -3px;
+    /* margin-left: 100%; */
+    position: absolute;
+    /* top:1px; */
+    right: 50px;
+}
+
 .review-btn{
     display: flex;
     justify-content: flex-end;
@@ -167,6 +235,11 @@ height: 500px;
     
 
     
+}
+.article-img{
+    width: 350px;
+    height: 350px;
+    /* border-radius: 50%; */
 }
 }
 

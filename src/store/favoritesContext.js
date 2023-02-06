@@ -21,7 +21,7 @@ export const FavoritesContextProvider = (props) => {
 setUserFavorites((prevUserFavorites)=>{
 return prevUserFavorites.concat(favoriteRecipe)
 });
-
+console.log(favoriteRecipe);
 axios.post('https://sweettoothbakery-8fd88-default-rtdb.firebaseio.com/favRecipes.json', favoriteRecipe)
 .then(function (response) {
   console.log(response);
@@ -33,7 +33,7 @@ axios.post('https://sweettoothbakery-8fd88-default-rtdb.firebaseio.com/favRecipe
 
     function removeFavoritesHandler(recipeId){
         setUserFavorites((prevUserFavorites)=>{
-            return prevUserFavorites.filter(meetup => meetup.id !==recipeId)
+            return prevUserFavorites.filter(item => item.idMeal !==recipeId)
 
         });
 let id='';
@@ -63,9 +63,11 @@ let id='';
     .then(() => console.log('Delete successful'));
 
     }
+
+
     function itemIsFavoritesHandler(recipeId){
         // if some item in the array matches our condition
-return userFavorites.some(meetup=>meetup.id === recipeId );
+return userFavorites.some(item=>item.idMeal === recipeId );
     }
 
     const context={

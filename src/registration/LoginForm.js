@@ -2,6 +2,7 @@ import { useRef, useState, useEffect,useContext } from 'react'
 import { Link, NavLink,useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import UserAuthContext from '../store/userAuthContext';
+import {GoogleLogin} from 'react-google-login';
 
 // import styles from './LoginForm.module.css';
 import styles from '../components/layout/Layout.module.css'
@@ -93,7 +94,13 @@ else{
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                                 Welcome Back
                             </h1>
-
+                            <GoogleLogin
+    clientId="1026329872161-o6jsq4tv19r3f3lonqb3ifqtpr158q19.apps.googleusercontent.com"
+    buttonText="Login With Google"
+    onSuccess={()=> console.log('Success')}
+    onFailure={()=> console.log('Failure')}
+    cookiePolicy={'single_host_origin'}
+  />
                             <p ref={errRef}
                                 className={errMsg ? 'errmsg' : 'offscreen'}
                                 aria-live='assertive'>

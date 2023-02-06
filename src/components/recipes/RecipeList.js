@@ -24,10 +24,10 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
       {
         currentPosts.map(
           (recipe, index) => <RecipeItem 
-            key={recipe.id}
-            id={recipe.id}
-            image={recipe.image}
-            title={recipe.title}
+            key={recipe[1].idMeal}
+            id={recipe[1].idMeal}
+            image={recipe[1].strMealThumb}
+            title={recipe[1].strMeal}
              />
 
 

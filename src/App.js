@@ -8,12 +8,16 @@ import Home from './pages/Home';
 import SingleRecipe from './pages/SingleRecipe';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-
+import Test from './components/test';
 
 function App() {
   return (
+    // <>
+    // <test />
+    // </>
     <Layout> 
-    <Routes>
+      < Test />
+    {/* <Routes>
     <Route  
           path='/'
           element={
@@ -36,6 +40,12 @@ function App() {
           path='/contact'
           element={
             <Contact />
+          } />
+
+<Route  
+          path='/profile/'
+          element={
+            <Profile />
           } />
 
 <Route  
@@ -65,7 +75,7 @@ function App() {
        
           
         
-      </Routes>
+      </Routes> */}
       </Layout>
   );
 }

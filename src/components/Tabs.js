@@ -12,42 +12,40 @@ const Tabs = () => {
     const [openTab, setOpenTab] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
     const [loadedRecipes, setLoadedRecipes] = useState([]);
-    useEffect(() => {
-        setIsLoading(true);
-        //  get data from firebase api
-        axios.get(
-            'https://sweettoothbakery-8fd88-default-rtdb.firebaseio.com/favRecipes.json')
-            .then(response => {
-                //response.json() returns a promise as well 
-                // so we have to work with another then to get data 
-                return response.data;
-
-            }).then(data => {
-                const recipes = [];
-                for (const key in data) {
-                    console.log(data[key].userId);
-                    if(data[key].userId ==params.id){
-                     const recipe = {
-                        id: key,
-                        ...data[key]
-                    };
-                    recipes.push(recipe);}
-                }
-
-                // so it wont display the recipe before data get fetched
-                setIsLoading(false);
-                setLoadedRecipes(recipes);
-            });
-
-    },
-        // if we did not put this array , useEffect Function will 
-        // excute whenever the component excutes
-
-        // [] => it will excute when the component exute for the first time
-        // [value] => it will excute when the value changes
 
 
-        []);
+ useEffect(() => {
+
+  setIsLoading(true);
+  //  get data from firebase api
+axios.get(
+  'https://sweettoothbakery-8fd88-default-rtdb.firebaseio.com/favRecipes.json')
+  .then(response=>
+    {
+      //response.json() returns a promise as well 
+      // so we have to work with another then to get data 
+      return response.data;
+
+    }).then(data=>{
+const recipes=[];
+for (const key in data){
+  const recipe={
+    id:Math.random(),
+    ...data[key]
+  } ;
+  recipes.push(['test',recipe]);
+}
+console.log(recipes);
+
+setIsLoading(false);
+setLoadedRecipes(recipes);
+    });
+
+  
+},
+
+[]);
+  
 
 
 

@@ -7,7 +7,7 @@ const Profile = () => {
       const authContext=useContext(UserAuthContext);
       const navigate=useNavigate();
 useEffect(()=>{
-  if (!authContext.userIsLogged())
+  if (sessionStorage.getItem('user_key')==null)
   {
     navigate('/login');
   }

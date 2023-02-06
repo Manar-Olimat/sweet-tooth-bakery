@@ -4,7 +4,7 @@ import ReviewItem from './ReviewItem';
 const ReviewList = (props) => {
     const [isLoading, setIsLoading]=useState(true);
     const [loadedReviews, setLoadedReviews]=useState([]);
-    
+    const [currentUser,setcurrentUser]=useState();
     useEffect(() => {
       setIsLoading(true);
       //  get data from firebase api
@@ -30,7 +30,9 @@ const ReviewList = (props) => {
     setIsLoading(false);
     setLoadedReviews(reviews);
         });
-    
+
+
+       
     },
     // if we did not put this array , useEffect Function will 
     // excute whenever the component excutes
@@ -64,6 +66,7 @@ const ReviewList = (props) => {
     <ul>
         {loadedReviews.filter(item=> item.recipe==props.recipe).map(item=><ReviewItem 
         // key={item.id}
+        // {setcurrentUser(item.userId)}
         rate={item.rate}
         review={item.review}
         />)
